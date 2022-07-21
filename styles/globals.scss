@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.6rem;
+}
+
+:root {
+	--font-family: 'Noto Sans', sans-serif;
+
+	// colors
+	--primary: #7653fc;
+	--primary-hover: #5236c4;
+
+	--green: #1dc37e;
+	--green-light: #c8f8e4;
+	--red: #de0000;
+	--red-light: #fc836d;
+	--yellow: #dcb44e;
+}
+
+html,
+body {
+	background: var(--bg);
+
+	color: var(--black);
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.body {
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+// some reset styles
+a {
+	cursor: pointer;
+
+	color: inherit;
+	text-decoration: none;
+}
