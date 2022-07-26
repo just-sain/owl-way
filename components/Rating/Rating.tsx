@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './Rating.module.scss'
 import StarIcon from './star.svg'
 
-const Rating = ({ isEditable = false, rating, setRating, className, ...props }: IRatingProps): JSX.Element => {
+export const Rating = ({ isEditable = false, rating, setRating, className, ...props }: IRatingProps): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>))
 
 	useEffect(() => {
@@ -54,5 +54,3 @@ const Rating = ({ isEditable = false, rating, setRating, className, ...props }: 
 		</div>
 	)
 }
-
-export default Rating

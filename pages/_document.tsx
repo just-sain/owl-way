@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render(): JSX.Element {
 		return (
-			<Html lang={'en'}>
+			<Html lang='ru'>
 				<Head>
 					<meta name='description' content='Owl way | by just.sain' />
 

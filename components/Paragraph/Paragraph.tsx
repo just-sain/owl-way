@@ -4,11 +4,11 @@ import { IParagraphProps } from './Paragraph.props'
 import cn from 'classnames'
 import styles from './Paragraph.module.scss'
 
-const Paragraph = ({ children, size = 'medium', className, ...props }: IParagraphProps): JSX.Element => {
+export const Paragraph = ({ children, size = 'medium', className, ...props }: IParagraphProps): JSX.Element => {
 	return (
 		<p
 			{...props}
-			className={cn(styles.paragraph, className, {
+			className={cn(className, styles.paragraph, {
 				[styles.small]: size === 'small',
 				[styles.medium]: size === 'medium',
 				[styles.large]: size === 'large'
@@ -17,5 +17,3 @@ const Paragraph = ({ children, size = 'medium', className, ...props }: IParagrap
 		</p>
 	)
 }
-
-export default Paragraph

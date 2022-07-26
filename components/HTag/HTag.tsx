@@ -2,7 +2,7 @@ import { IHTagProps } from './HTag.props'
 import styles from './HTag.module.scss'
 import cn from 'classnames'
 
-const HTag = ({ children, tag, className, ...props }: IHTagProps): JSX.Element => {
+export const HTag = ({ children, tag, className, ...props }: IHTagProps): JSX.Element => {
 	switch (tag) {
 		case 'h1':
 			return (
@@ -33,5 +33,3 @@ const HTag = ({ children, tag, className, ...props }: IHTagProps): JSX.Element =
 			return <h1>{children}</h1>
 	}
 }
-
-export default HTag

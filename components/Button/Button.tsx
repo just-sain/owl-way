@@ -6,10 +6,10 @@ import ArrowIcon from './arrow.svg'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 
-const Button = ({ children, appearance, arrow = 'none', className, ...props }: IButtonProps): JSX.Element => {
+export const Button = ({ children, appearance, arrow = 'none', className, ...props }: IButtonProps): JSX.Element => {
 	return (
 		<button
-			className={cn(styles.button, className, {
+			className={cn(className, styles.button, {
 				[styles.primary]: appearance === 'primary',
 				[styles.ghost]: appearance === 'ghost'
 			})}
@@ -26,5 +26,3 @@ const Button = ({ children, appearance, arrow = 'none', className, ...props }: I
 		</button>
 	)
 }
-
-export default Button

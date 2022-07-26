@@ -1,10 +1,11 @@
 import React from 'react'
+import Link from 'next/link'
 import { ITagProps } from './Tag.props'
 // styles
 import cn from 'classnames'
 import styles from './Tag.module.scss'
 
-const Tag = ({ children, color, size, href, className, ...props }: ITagProps) => {
+export const Tag = ({ children, color, size, href, className, ...props }: ITagProps) => {
 	return (
 		<div
 			{...props}
@@ -19,14 +20,12 @@ const Tag = ({ children, color, size, href, className, ...props }: ITagProps) =>
 				[styles.primary]: color === 'primary'
 			})}>
 			{href ? (
-				<a href={href} target={'_blank'}>
-					{children}
-				</a>
+				<Link href={href}>
+					<a target='_blank'>{children}</a>
+				</Link>
 			) : (
 				children
 			)}
 		</div>
 	)
 }
-
-export default Tag

@@ -1,0 +1,23 @@
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	svg {
+		width: 4rem;
+		height: 4rem;
+
+		fill: var(--primary);
+	}
+
+	p {
+		color: var(--primary);
+		font-size: 3rem;
+		font-weight: 700;
+
+		span {
+			font-size: 2.4rem;
+			font-weight: 200;
+		}
+	}
+}

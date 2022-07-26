@@ -1,0 +1,42 @@
+.wrapper {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 4rem;
+}
+
+.sort {
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+
+	&._active {
+		.text {
+			color: var(--primary);
+			font-weight: 700;
+		}
+
+		.icon {
+			width: 2rem;
+			opacity: 1;
+		}
+	}
+}
+
+.icon {
+	width: 0;
+	opacity: 0;
+	display: inline-block;
+
+	transition: width 0.4s ease 0s, opacity 0.4s ease 0s;
+}
+
+.text {
+	color: var(--black);
+	font-size: 1.6rem;
+	font-weight: 400;
+
+	transition: color 0.4s ease 0s, font-weight 0.4s ease 0s;
+}

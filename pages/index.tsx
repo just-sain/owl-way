@@ -1,32 +1,21 @@
-import Head from 'next/head'
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
-import Button from '../components/Button/Button'
-import HTag from '../components/HTag/HTag'
-import Paragraph from '../components/Paragraph/Paragraph'
-import Rating from '../components/Rating/Rating'
-import Tag from '../components/Tag/Tag'
+import axios from 'axios'
+// interfaces
+import { IMenuItem } from '../interfaces/menu.interface'
+// hoc
+import withLayout from '../Layout/Layout'
+// components
+import { HTag, Paragraph, Rating, Tag } from '../components'
+import { TopLevelCategory } from '../interfaces/page.interface'
 
-const Home = (): JSX.Element => {
-	const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
+const Home = ({ menu }: IHomeProps): JSX.Element => {
 	const [rating, setRating] = useState<number>(4)
 
 	return (
-		<div className={isDarkMode ? 'dark' : 'light'}>
-			<Head>
-				<link rel='stylesheet' href={isDarkMode ? '/style-modes/darkMode.css' : '/style-modes/lightMode.css'} />
-
-				<title>Owl way | by just.sain</title>
-			</Head>
+		<section>
 			<div>
 				<HTag tag='h1'>Hello, World!</HTag>
-
-				<Button appearance='primary' arrow='right' onClick={() => setIsDarkMode(true)}>
-					dark
-				</Button>
-				<Button appearance='ghost' arrow='right' onClick={() => setIsDarkMode(false)}>
-					light
-				</Button>
-
 				<Paragraph size='large'>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nihil provident cum nostrum incidunt ea beatae voluptatum aperiam
 					perspiciatis. Mollitia placeat, amet consequatur consectetur vitae quidem officiis natus impedit modi.
@@ -52,8 +41,27 @@ const Home = (): JSX.Element => {
 				<Rating rating={rating} isEditable setRating={setRating} />
 				<Rating rating={5} isEditable={false} />
 			</div>
-		</div>
+		</section>
 	)
 }
 
-export default Home
+export default withLayout(Home)
+
+export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
+	const firstCategory = TopLevelCategory.Courses
+	const { data: menu } = await axios.post<IMenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+		firstCategory
+	})
+
+	return {
+		props: {
+			menu,
+			firstCategory
+		}
+	}
+}
+
+interface IHomeProps extends Record<string, unknown> {
+	menu: IMenuItem[]
+	firstCategory: number
+}
