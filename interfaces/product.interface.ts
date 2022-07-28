@@ -14,7 +14,7 @@ export interface IReviewModule {
 	title: string
 	description: string
 	rating: number
-	createAt: Date
+	createdAt: Date
 }
 
 export interface IProductModule {
@@ -27,9 +27,10 @@ export interface IProductModule {
 	link: string
 	price: number
 	credit: number
-	oldPrice: number
-	characteristics: IProductCharacteristic[]
+	oldPrice?: number
+	characteristics?: IProductCharacteristic[]
 	advantages: string
+	disAdvantages: string
 	initialRating: number
 	createdAt: Date
 	updatedAt: Date

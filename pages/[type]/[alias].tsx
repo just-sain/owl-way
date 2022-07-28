@@ -10,7 +10,7 @@ import { IProductModule } from '../../interfaces/product.interface'
 // hoc
 import withLayout from '../../Layout/Layout'
 // component
-import { TopPageComponent } from '../../components'
+import { TopPageComponent } from '../../components/main'
 
 const TopPage = ({ page, products, firstCategory }: ITopPageProps): JSX.Element => {
 	return <TopPageComponent firstCategory={firstCategory} page={page} products={products} />

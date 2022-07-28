@@ -3,7 +3,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 //interfaces
 import { ISidebarProps } from './Sidebar.props'
 // components
-import { Logo, Button, HTag, Input, Textarea } from '../../components'
+import { Logo, Button, HTag, Input } from '../../components/additional'
 import Menu from '../Menu/Menu'
 //styles
 import styles from './Sidebar.module.scss'
@@ -16,7 +16,6 @@ const Sidebar = ({ setThemeMode, className, ...props }: ISidebarProps): JSX.Elem
 	const { handleSubmit, control } = useForm<ISearchForm>({ defaultValues: { search: '' }, mode: 'onSubmit' })
 
 	const onSubmit: SubmitHandler<ISearchForm> = ({ search }) => {
-		debugger
 		Router.push({
 			pathname: '/search',
 			query: { q: search }
@@ -33,7 +32,7 @@ const Sidebar = ({ setThemeMode, className, ...props }: ISidebarProps): JSX.Elem
 						name='search'
 						control={control}
 						defaultValue=''
-						render={({ field }) => <Input {...field} withButton placeholder='Поиск...' type='text' />}
+						render={({ field: { ref, ...field } }) => <Input {...field} withButton inputRef={ref} placeholder='Поиск...' type='text' />}
 					/>
 				</form>
 

@@ -7,7 +7,7 @@ const nextConfig = {
 module.exports = {
 	nextConfig,
 	images: {
-		domains: ['courses-top.ru']
+		domains: ['courses-top.ru', 'cdn-bucket.hb.bizmrg.com']
 	},
 	webpack(config, options) {
 		config.module.rules.push({

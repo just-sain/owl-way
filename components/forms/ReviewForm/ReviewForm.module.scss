@@ -1,0 +1,87 @@
+@import '../../../styles/mixins.scss';
+
+.form {
+	display: grid;
+	grid-template-columns: [start] auto 1fr auto [end];
+	align-items: center;
+	gap: 2rem 3rem;
+
+	font-size: 1.4rem;
+	font-weight: 400;
+
+	@include for-desktop {
+		grid-template-columns: [start] 1fr 1fr [end];
+	}
+	@include for-tablet-standard {
+		grid-template-columns: [start] 1fr [end];
+	}
+}
+
+.title {
+	justify-self: left;
+}
+
+.description,
+.submit {
+	grid-column: start / end;
+}
+.rating {
+	display: grid;
+
+	@include for-desktop {
+		padding-left: 1rem;
+		grid-column: start / end;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	@include for-small-phone {
+		grid-template-columns: 1fr;
+	}
+}
+
+.submit {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 1.5rem;
+
+	text-align: center;
+
+	@include for-desktop {
+		grid-template-columns: 1fr;
+	}
+}
+
+.success {
+	margin-top: 2rem;
+	padding: 2rem;
+
+	background: var(--green-light);
+	border-radius: 0.5rem;
+
+	color: var(--white);
+	text-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+	font-size: 1.6rem;
+	font-weight: 400;
+
+	position: relative;
+
+	@include for-phone {
+		font-size: 1.4rem;
+	}
+}
+
+.successTitle {
+	font-weight: 700;
+}
+
+.close {
+	cursor: pointer;
+	stroke: var(--green);
+
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}

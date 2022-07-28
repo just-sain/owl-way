@@ -1,0 +1,94 @@
+@import '../../../styles/mixins.scss';
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: 3rem;
+
+	@include for-desktop {
+		grid-template-columns: 1fr;
+	}
+}
+
+.count {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+}
+
+.title {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+.countValue {
+	color: var(--primary);
+	font-size: 3.6rem;
+	font-weight: 700;
+}
+
+.salary {
+	padding: 2rem;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+
+	text-align: center;
+
+	@include for-phone {
+		grid-template-columns: 1fr;
+	}
+}
+
+.salaryBlock {
+	border-right: 0.1rem solid var(--gray-light);
+
+	&:last-child {
+		padding: 0;
+		border: none;
+	}
+
+	@include for-phone {
+		padding-bottom: 1.5rem;
+		border-right: none;
+		border-bottom: 0.1rem solid var(--gray-light);
+	}
+}
+
+.salaryCount {
+	margin-top: 1rem;
+
+	color: var(--black);
+	font-size: 2.6rem;
+	font-weight: 700;
+}
+
+.salaryRate {
+	margin-top: 1rem;
+
+	display: grid;
+	grid-template-columns: repeat(3, 2rem);
+	justify-content: center;
+	align-content: center;
+	gap: 1rem;
+}
+
+.rate {
+	path {
+		fill: var(--white);
+	}
+	circle {
+		fill: var(--gray-rate);
+	}
+
+	&._fill {
+		circle {
+			fill: var(--red-light);
+		}
+	}
+}

@@ -13,10 +13,10 @@ const Footer = ({ className, ...props }: IFooterProps): JSX.Element => {
 	return (
 		<footer {...props} className={cn(className, styles.footer)}>
 			<p>Owl Way © {dateText} Все права защищены</p>
-			<Link href='#'>
+			<Link href='https://courses-top.ru/user-agreement.docx'>
 				<a target='_blank'>Пользовательское соглашение</a>
 			</Link>
-			<Link href='#'>
+			<Link href='https://courses-top.ru/confidenial.docx'>
 				<a target='_blank'>Политика конфиденциальности</a>
 			</Link>
 		</footer>

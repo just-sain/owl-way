@@ -1,6 +1,7 @@
 :root {
 	--bg: #f5f6f8;
 
+	--superBlack: #000000;
 	--black: #3b434e;
 	--gray: #787d85;
 	--gray-search: #a4a4a4;
@@ -8,7 +9,9 @@
 	--gray-rate: #bbbbbb;
 	--gray-border: #dfdfdf;
 	--gray-line: #d2d2d2;
-	--ghost: #e2e2e2;
+	--gray-dot: #c4c4c4;
+	--ghost: #bebebe;
 	--white: #ffffff;
+	--white-blue: #f9f8ff;
 	--ice-blue: #b3c0d9;
 }

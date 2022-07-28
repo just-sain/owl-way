@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SortEnum } from '../components/Sort/Sort.props'
+import { SortEnum } from '../components/additional/Sort/Sort.props'
 // interfaces
 import { IProductModule } from '../interfaces/product.interface'
 import { RootState } from './store'

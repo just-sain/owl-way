@@ -1,0 +1,50 @@
+@import '../../../styles/mixins.scss';
+
+.review {
+	display: grid;
+	grid-template-columns: [start] auto 1fr [middle] auto auto [end];
+	align-items: center;
+	gap: 1rem;
+
+	font-size: 1.4rem;
+	font-weight: 400;
+
+	@include for-tablet-standard {
+		grid-template-columns: [start] 3rem [titleStart] auto 1fr [end];
+	}
+}
+
+.user {
+	fill: var(--primary);
+}
+
+.title {
+	@include for-tablet-standard {
+		grid-column: titleStart / end;
+	}
+}
+
+.name {
+	font-weight: 700;
+}
+
+.date {
+	margin-right: 1rem;
+
+	@include for-tablet-standard {
+		grid-column: start / span 2;
+	}
+	@include for-phone {
+		grid-column: start / end;
+	}
+}
+
+.rating {
+	@include for-phone {
+		grid-column: start / end;
+	}
+}
+
+.description {
+	grid-column: start / end;
+}

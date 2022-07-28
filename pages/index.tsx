@@ -3,11 +3,11 @@ import { useState } from 'react'
 import axios from 'axios'
 // interfaces
 import { IMenuItem } from '../interfaces/menu.interface'
+import { TopLevelCategory } from '../interfaces/page.interface'
 // hoc
 import withLayout from '../Layout/Layout'
 // components
-import { HTag, Paragraph, Rating, Tag } from '../components'
-import { TopLevelCategory } from '../interfaces/page.interface'
+import { HTag, Paragraph, Rating, Tag } from '../components/additional'
 
 const Home = ({ menu }: IHomeProps): JSX.Element => {
 	const [rating, setRating] = useState<number>(4)
@@ -39,7 +39,7 @@ const Home = ({ menu }: IHomeProps): JSX.Element => {
 					what?
 				</Tag>
 				<Rating rating={rating} isEditable setRating={setRating} />
-				<Rating rating={5} isEditable={false} />
+				<Rating rating={5}  />
 			</div>
 		</section>
 	)

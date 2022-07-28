@@ -1,10 +1,16 @@
+$for-small-phone: 425px;
 $for-phone: 599px;
 $for-tablet-portrait: 600px;
 $for-tablet-standard: 765px;
 $for-tablet-landscape: 900px;
 $for-desktop: 1200px;
-$for-big-desktop: 1800px;
+$for-strange-desktop: 1400px;
 
+@mixin for-small-phone {
+	@media (max-width: $for-small-phone) {
+		@content;
+	}
+}
 @mixin for-phone {
 	@media (max-width: $for-phone) {
 		@content;
@@ -30,8 +36,8 @@ $for-big-desktop: 1800px;
 		@content;
 	}
 }
-@mixin for-big-desktop {
-	@media (max-width: $for-big-desktop) {
+@mixin for-strange-desktop {
+	@media (max-width: $for-strange-desktop) {
 		@content;
 	}
 }
