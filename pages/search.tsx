@@ -1,21 +1,47 @@
-import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
-import withLayout from '../Layout/Layout'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useActions } from '../hooks';
+import axios from 'axios';
+import { GetStaticProps } from 'next';
+import { wrapper } from '../store/store';
+import { API } from '../helpers/api';
+import withLayout from '../Layout/Layout';
+import { IMenuItem } from '../interfaces/menu.interface';
 
-const search = (): JSX.Element => {
-	const { query } = useRouter()
+const search = ({ menu }: ISearchProps): JSX.Element => {
+	const { setMenu } = useActions();
 
-	return <div>Your search was: {query.q}</div>
-}
+	useEffect(() => {
+		if (menu.length === 0) setMenu(menu);
+	}, []);
 
-export default withLayout(search)
+	const { query } = useRouter();
 
-export const getStaticProps: GetStaticProps<ISearchProps> = async () => {
-	const firstCategory = 0
+	return <div>Your search was: {query.q}</div>;
+};
+
+export default withLayout(search);
+
+export const getStaticProps: GetStaticProps<ISearchProps> = wrapper.getStaticProps(store => async () => {
+	const firstCategory = store.getState().menu.firstCategory;
+	const menu = store.getState().menu.menu;
+	let resultMenu;
+	if (menu.length === 0) {
+		const { data } = await axios.post<IMenuItem[]>(API.topPage.find, {
+			firstCategory
+		});
+		resultMenu = data;
+	}
 
 	return {
-		props: {}
-	}
-}
+		props: {
+			menu: resultMenu as IMenuItem[],
+			firstCategory
+		}
+	};
+});
 
-interface ISearchProps extends Record<string, unknown> {}
+interface ISearchProps extends Record<string, unknown> {
+	menu: IMenuItem[];
+	firstCategory: number;
+}

@@ -1,0 +1,53 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4rem;
+	height: 4rem;
+	cursor: pointer;
+	transition: background 0.3s ease 0s;
+	border: none;
+	border-radius: 1rem;
+	box-shadow: 0 0.4rem 0.4rem rgb(0 0 0 / 5%);
+
+	&:hover {
+		svg {
+			transform: translate(0, -65%);
+		}
+	}
+}
+
+.up {
+	position: fixed;
+	z-index: 50;
+	right: 3rem;
+	bottom: 3rem;
+}
+
+.primary {
+	background: var(--primary-hover);
+
+	&:hover {
+		background: var(--primary);
+	}
+
+	svg {
+		transition: transform 0.3s ease 0.1s;
+		transform: translate(0, 0);
+		fill: var(--white);
+	}
+}
+
+.white {
+	background: var(--white);
+
+	&:hover {
+		background: var(--primary-hover);
+	}
+
+	svg {
+		transition: transform 0.3s ease 0.1s;
+		transform: translate(0, 0);
+		fill: var(--primary);
+	}
+}

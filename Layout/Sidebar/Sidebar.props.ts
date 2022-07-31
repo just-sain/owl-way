@@ -1,6 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
-import { ThemeModeType } from '../Layout'
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface ISidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	setThemeMode: (themeMode: ThemeModeType) => void
-}
+export interface ISidebarProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}

@@ -10,30 +10,26 @@
 }
 
 .mark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 5rem;
 	height: 5rem;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	background: var(--green-light);
 	border-radius: 50%;
+	background: var(--green-light);
 }
 
 .title {
 	align-self: center;
-
 	color: var(--black);
 	font-size: 2rem;
 	font-weight: 700;
 }
 
 .line {
-	height: 100%;
 	width: 0;
-	justify-self: center;
-
+	height: 100%;
 	border: none;
 	border-left: 0.2rem solid var(--gray-line);
+	justify-self: center;
 }

@@ -11,31 +11,37 @@ $for-strange-desktop: 1400px;
 		@content;
 	}
 }
+
 @mixin for-phone {
 	@media (max-width: $for-phone) {
 		@content;
 	}
 }
+
 @mixin for-tablet-portrait {
 	@media (max-width: $for-tablet-portrait) {
 		@content;
 	}
 }
+
 @mixin for-tablet-standard {
 	@media (max-width: $for-tablet-standard) {
 		@content;
 	}
 }
+
 @mixin for-tablet-landscape {
 	@media (max-width: $for-tablet-landscape) {
 		@content;
 	}
 }
+
 @mixin for-desktop {
 	@media (max-width: $for-desktop) {
 		@content;
 	}
 }
+
 @mixin for-strange-desktop {
 	@media (max-width: $for-strange-desktop) {
 		@content;

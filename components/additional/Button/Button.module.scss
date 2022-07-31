@@ -1,21 +1,17 @@
 .button {
 	padding: 1rem;
-
 	cursor: pointer;
-	border-radius: 0.5rem;
-
 	text-align: center;
+	border-radius: 0.5rem;
 	font-size: 1.4rem;
 	font-weight: 400;
 }
 
 .primary {
-	background: var(--primary);
-	border: none;
-
-	color: var(--white);
-
 	transition: background 0.3s ease 0s;
+	color: var(--white);
+	border: none;
+	background: var(--primary);
 
 	.arrow svg {
 		fill: var(--white);
@@ -29,13 +25,10 @@
 
 .ghost {
 	padding: 0.8rem 1.4rem;
-
-	background: var(--white);
-	border: 1px solid var(--gray-light);
-
-	color: var(--black);
-
 	transition: background 0.3s ease 0s, color 0.3s ease 0.2s;
+	color: var(--black);
+	border: 1px solid var(--gray-light);
+	background: var(--white);
 
 	.arrow svg {
 		fill: var(--black);
@@ -44,8 +37,8 @@
 
 	&:hover,
 	&:focus {
-		background: var(--primary);
 		color: var(--white);
+		background: var(--primary);
 
 		.arrow svg {
 			fill: var(--white);
@@ -54,12 +47,25 @@
 }
 
 .arrow {
-	margin-left: 1rem;
 	display: inline-block;
-
+	margin-left: 1rem;
 	transition: transform 0.3s ease 0s;
 
 	&.down {
 		transform: rotate(90deg);
+	}
+}
+
+.transparent {
+	margin: 0;
+	padding: 0;
+	transition: color 0.3s ease 0.1s;
+	color: var(--black);
+	border: none;
+	background: none;
+
+	&:hover,
+	&:focus {
+		color: var(--primary);
 	}
 }

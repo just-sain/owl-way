@@ -1,5 +1,10 @@
-import { DetailedHTMLProps, FormHTMLAttributes } from 'react'
+import { DetailedHTMLProps, FormHTMLAttributes } from 'react';
 
-export interface IReviewFormProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
-	productId: string
+export interface IReviewFormProps
+  extends DetailedHTMLProps<
+    FormHTMLAttributes<HTMLFormElement>,
+    HTMLFormElement
+  > {
+  productId: string;
+  isOpened?: boolean;
 }

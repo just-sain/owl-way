@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import { ITagProps } from './Tag.props'
+import React from 'react';
+import Link from 'next/link';
+import { ITagProps } from './Tag.props';
 // styles
-import cn from 'classnames'
-import styles from './Tag.module.scss'
+import cn from 'classnames';
+import styles from './Tag.module.scss';
 
 export const Tag = ({ children, color, size, href, className, ...props }: ITagProps) => {
 	return (
@@ -27,5 +27,5 @@ export const Tag = ({ children, color, size, href, className, ...props }: ITagPr
 				children
 			)}
 		</div>
-	)
-}
+	);
+};

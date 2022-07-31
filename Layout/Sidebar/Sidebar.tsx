@@ -1,39 +1,43 @@
-import Router from 'next/router'
-import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import Router, { useRouter } from 'next/router';
+import { useForm, SubmitHandler } from 'react-hook-form';
 //interfaces
-import { ISidebarProps } from './Sidebar.props'
+import { ISidebarProps } from './Sidebar.props';
 // components
-import { Logo, Button, HTag, Input } from '../../components/additional'
-import Menu from '../Menu/Menu'
+import { Logo, HTag } from '../../components/additional';
+import { SearchInput } from '../../components/forms';
+import Menu from '../Menu/Menu';
+import Theme from '../Theme/Theme';
 //styles
-import styles from './Sidebar.module.scss'
+import styles from './Sidebar.module.scss';
+import { useActions, useTypedSelector } from '../../hooks';
 
 interface ISearchForm {
-	search: string
+	search: string;
 }
 
-const Sidebar = ({ setThemeMode, className, ...props }: ISidebarProps): JSX.Element => {
-	const { handleSubmit, control } = useForm<ISearchForm>({ defaultValues: { search: '' }, mode: 'onSubmit' })
+const Sidebar = ({ className, ...props }: ISidebarProps): JSX.Element => {
+	const router = useRouter();
+	const { changeThemeMode } = useActions();
+	const themeMode = useTypedSelector(state => state.app.themeMode);
+	const { register, handleSubmit } = useForm<ISearchForm>({
+		defaultValues: { search: (router.query.q as string) ?? '' },
+		mode: 'onSubmit'
+	});
 
 	const onSubmit: SubmitHandler<ISearchForm> = ({ search }) => {
 		Router.push({
 			pathname: '/search',
 			query: { q: search }
-		})
-	}
+		});
+	};
 
 	return (
 		<aside className={className} {...props}>
 			<div className={styles.sidebar}>
 				<Logo className={styles.fragment} />
 
-				<form className={`${styles.fragment} ${styles.search}`} onSubmit={handleSubmit(onSubmit)}>
-					<Controller
-						name='search'
-						control={control}
-						defaultValue=''
-						render={({ field: { ref, ...field } }) => <Input {...field} withButton inputRef={ref} placeholder='Поиск...' type='text' />}
-					/>
+				<form role={'search'} className={`${styles.fragment} ${styles.search}`} onSubmit={handleSubmit(onSubmit)}>
+					<SearchInput {...register('search')} placeholder='Поиск...' type='text' />
 				</form>
 
 				<div className={styles.fragment}>
@@ -43,20 +47,10 @@ const Sidebar = ({ setThemeMode, className, ...props }: ISidebarProps): JSX.Elem
 					<Menu />
 				</div>
 
-				<div className={styles.fragment}>
-					<HTag tag='h2' className={styles.title}>
-						Тема
-					</HTag>
-					<Button appearance='primary' arrow='right' onClick={() => setThemeMode('dark')}>
-						Темная
-					</Button>
-					<Button appearance='ghost' arrow='right' onClick={() => setThemeMode('light')}>
-						Светлая
-					</Button>
-				</div>
+				<Theme themeMode={themeMode} setThemeMode={() => changeThemeMode(themeMode === 'dark' ? 'light' : 'dark')} className={styles.fragment} />
 			</div>
 		</aside>
-	)
-}
+	);
+};
 
-export default Sidebar
+export default Sidebar;

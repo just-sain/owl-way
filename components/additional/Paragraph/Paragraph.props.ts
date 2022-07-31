@@ -1,6 +1,10 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-export interface IParagraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
-	children: ReactNode
-	size?: 'small' | 'medium' | 'large'
+export interface IParagraphProps
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLParagraphElement>,
+    HTMLParagraphElement
+  > {
+  children: ReactNode;
+  size?: 'small' | 'medium' | 'large';
 }

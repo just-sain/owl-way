@@ -1,25 +1,26 @@
-import axios from 'axios'
+import axios from 'axios';
+import { API } from '../helpers/api';
 // interfaces
-import { IMenuItem } from '../interfaces/menu.interface'
-import { ITopPageModule, TopLevelCategory } from '../interfaces/page.interface'
-import { IProductModule } from '../interfaces/product.interface'
+import { IMenuItem } from '../interfaces/menu.interface';
+import { ITopPageModule, TopLevelCategory } from '../interfaces/page.interface';
+import { IProductModule } from '../interfaces/product.interface';
 
-export const TopLevelApi = {
+export const topLevelApi = {
 	getMenuItems: async (firstCategory: TopLevelCategory) => {
-		const { data: menu } = await axios.post<IMenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+		const { data } = await axios.post<IMenuItem[]>(API.topPage.find, {
 			firstCategory
-		})
-		return menu
+		});
+		return data;
 	},
-	getMenuItemByAlias: async (alias: string) => {
-		const { data: page } = await axios.get<ITopPageModule>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/byAlias/${alias}`)
-		return page
+	getMenuItemByAlias: async () => {
+		const { data } = await axios.get<ITopPageModule>(API.topPage.byAlias);
+		return data;
 	},
-	getProductModule: async (category: string, limit: number = 10) => {
-		const { data: products } = await axios.post<IProductModule[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/product/find`, {
-			category: category,
-			limit: 10
-		})
-		return products
+	getProductModule: async (category: string, limit = 10) => {
+		const { data } = await axios.post<IProductModule[]>(API.product.find, {
+			category,
+			limit
+		});
+		return data;
 	}
-}
+};

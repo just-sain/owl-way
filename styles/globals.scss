@@ -1,50 +1,49 @@
 * {
 	box-sizing: border-box;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 html {
 	font-size: 62.5%;
 }
+
 body {
 	font-size: 1.6rem;
 }
 
-:root {
-	--font-family: 'Noto Sans', sans-serif;
-
-	// colors
-	--primary: #7653fc;
-	--primary-hover: #5236c4;
-
-	--green: #1dc37e;
-	--green-light: #c8f8e4;
-	--red: #de0000;
-	--red-light: #fc836d;
-	--yellow: #dcb44e;
-}
-
 html,
 body {
-	background: var(--bg);
-
 	color: var(--black);
+	background: var(--bg);
 	font-family: 'Noto Sans', sans-serif;
 }
 
 .body {
+	overflow: hidden scroll;
 	min-width: 100vw;
 	min-height: 100vh;
-	overflow: hidden scroll;
 }
 
 // some reset styles
 a {
 	cursor: pointer;
-
-	color: inherit;
 	text-decoration: none;
+	color: inherit;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
 }
 
 // scrollbar
@@ -61,4 +60,12 @@ a {
 ::-webkit-scrollbar-thumb {
 	border-radius: 1rem;
 	background-color: var(--gray);
+}
+
+// global classes
+.visualHidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
 }

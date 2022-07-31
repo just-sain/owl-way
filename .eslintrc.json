@@ -1,0 +1,19 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"quotes": ["warn", "single"],
+		"semi": ["warn", "always"],
+		"max-len": ["error", { "code": 150, "tabWidth": 3 }],
+		"@typescript-eslint/semi": ["warn"],
+		"@typescript-eslint/no-empty-interface": [
+			"error",
+			{
+				"allowSingleExtends": true
+			}
+		]
+	},
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"]
+}

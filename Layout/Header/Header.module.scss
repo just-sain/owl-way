@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+
+.header {
+	display: none;
+	padding: 1.5rem 1.5rem 0;
+
+	@include for-tablet-landscape {
+		display: grid;
+		align-items: center;
+		justify-content: space-between;
+		grid-template-columns: auto 4rem;
+	}
+}
+
+.burgerMenu {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden scroll;
+	width: 100%;
+	padding: 1.5rem;
+	background: var(--bg);
+}
+
+.menuClose {
+	position: fixed;
+	z-index: 101;
+	top: 1.5rem;
+	right: 1.5rem;
+}

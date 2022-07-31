@@ -1,15 +1,14 @@
-@import '../../../styles/mixins.scss';
+@import '../../../styles/mixins';
 
 .card {
 	overflow: hidden;
 }
 
 .product {
+	display: grid;
 	width: 100%;
 	padding: 3rem;
-
-	display: grid;
-	grid-template-columns: [start] 7rem [logoEnd] 3rem [titleStart] calc(50% - 10rem) [middle] 1fr [priceStart] auto [priceEnd] 4rem [creditStart] auto [creditEnd] 4rem [ratingStart] auto [end];
+	grid-template-columns: [start] 7rem [logoEnd] 3rem [titleStart] calc(50% - 10rem) [middle] 1fr [priceStart] auto [pricEend] 4rem [creditStart] auto [creditEnd] 4rem [ratingStart] auto [end];
 
 	@include for-strange-desktop {
 		grid-template-columns: 7rem 3rem auto 4rem auto 4rem 1fr;
@@ -103,25 +102,23 @@
 }
 
 .hr {
-	@include for-strange-desktop {
-		grid-area: hr;
-	}
-
 	&._hr2 {
 		@include for-strange-desktop {
 			grid-area: hr2;
 		}
 	}
+
+	@include for-strange-desktop {
+		grid-area: hr;
+	}
 }
 
 .logo {
+	position: relative;
+	overflow: hidden;
 	width: 7rem;
 	height: 7rem;
-	overflow: hidden;
-
 	border-radius: 0.5rem;
-
-	position: relative;
 
 	img {
 		width: 100%;
@@ -147,7 +144,6 @@
 .price,
 .credit {
 	align-self: flex-end;
-
 	white-space: nowrap;
 	font-size: 2rem;
 	font-weight: 400;
@@ -190,12 +186,18 @@
 		grid-area: priceTitle;
 	}
 }
+
 .creditTitle {
 	@include for-strange-desktop {
 		grid-area: creditTitle;
 	}
 }
+
 .ratingTitle {
+	a {
+		color: var(--primary);
+	}
+
 	@include for-strange-desktop {
 		grid-area: ratingTitle;
 	}
@@ -211,8 +213,8 @@
 
 .categories {
 	display: flex;
-	flex-wrap: wrap;
 	align-items: flex-start;
+	flex-wrap: wrap;
 	gap: 0.5rem;
 
 	@include for-strange-desktop {
@@ -223,7 +225,6 @@
 
 .description {
 	margin-bottom: 1.5rem;
-
 	color: var(--black);
 	font-size: 1.6rem;
 	font-weight: 400;
@@ -234,12 +235,11 @@
 }
 
 .features {
-	padding-right: 6rem;
 	display: grid;
-	gap: 0.5rem;
-
+	padding-right: 6rem;
 	font-size: 1.6rem;
 	font-weight: 500;
+	gap: 0.5rem;
 
 	@include for-strange-desktop {
 		margin-bottom: 2rem;
@@ -255,7 +255,7 @@
 .feature {
 	display: grid;
 	grid-template-columns: auto 1fr auto;
-	align-items: center;
+	align-items: end;
 	gap: 1rem;
 
 	@include for-small-phone {
@@ -269,8 +269,8 @@
 }
 
 .featureDots {
-	margin-bottom: 0.5rem;
 	align-self: flex-end;
+	margin-bottom: 0.5rem;
 	border-bottom: 0.1rem dotted var(--gray-dot);
 
 	@include for-small-phone {
@@ -290,13 +290,13 @@
 
 .characteristic {
 	padding-left: 1.5rem;
-
 	border-left: 0.3rem solid var(--gray);
 	border-radius: 1rem;
 
 	&._advantages {
-		border-color: var(--green);
+		border-color: var(--green-border);
 	}
+
 	&._disadvantages {
 		border-color: var(--red-light);
 	}
@@ -310,7 +310,6 @@
 
 .characteristicText {
 	margin-top: 0.5rem;
-
 	font-size: 1.6rem;
 	font-weight: 400;
 }
@@ -318,9 +317,9 @@
 // where some buttons
 .actions {
 	display: flex;
+	align-items: center;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
-	align-items: center;
 	gap: 2rem;
 
 	@include for-strange-desktop {
@@ -329,18 +328,8 @@
 }
 
 .reviews {
-	width: 100%;
-	max-height: 0;
-	overflow: hidden;
-	padding: 0;
-
 	display: grid;
+	overflow: hidden;
+	width: 100%;
 	gap: 2rem;
-
-	transition: max-height 0.4s ease 0s, padding 0.4s ease 0s;
-
-	&._open {
-		max-height: 100%;
-		padding: 3rem;
-	}
 }

@@ -1,7 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-export interface ICardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	children: ReactNode
-	color?: 'white' | 'gray' | 'blue' | 'transparent'
-	isRounded?: boolean
+export interface ICardProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  children: ReactNode;
+  color?: 'white' | 'gray' | 'blue' | 'transparent';
+  isRounded?: boolean;
 }
