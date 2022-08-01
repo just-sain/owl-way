@@ -3,15 +3,20 @@
 This is my first project on NextJS and I want to finish this project before the end of summer
 Project name --> The Owl Way.
 
-# began
+## lints
+
+I used to eslint with some custom settings but the rest is normal.
+I thought about stylelint and tried to setup here, but failed
+
+## began
 
 07.19.2022
 
-# c\*mshot
+## c\*mshot
 
 It`s not clear yet
 
-## Bullshit from create-next-app author
+# Bullshit from create-next-app author
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

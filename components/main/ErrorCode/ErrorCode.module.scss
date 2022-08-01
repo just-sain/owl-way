@@ -1,0 +1,110 @@
+@import '../../../styles/mixins.scss';
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	color: var(--black);
+	text-align: center;
+}
+
+.heading {
+	color: var(--primary);
+	font-size: 5rem;
+
+	position: relative;
+}
+
+.errorCode {
+	--color-primary: #f6aca2;
+	--color-secondary: #f49b90;
+	--color-tertiary: #f28b7d;
+	--color-quaternary: #f07a6a;
+	--color-quinary: #ee6352;
+
+	display: inline-block;
+
+	color: var(--color-primary);
+	letter-spacing: 0.4rem;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+		0.9rem 0.9rem var(--color-quaternary), 1.2rem 1.2rem 0 var(--color-quinary);
+	font-size: calc(7rem);
+	font-weight: 400;
+
+	animation: shadows 1.5s ease-in infinite, move 1.3s ease-in infinite;
+
+	@include for-phone {
+		display: block;
+	}
+}
+
+.text {
+	font-size: 2rem;
+}
+
+@keyframes shadows {
+	0% {
+		text-shadow: none;
+	}
+	10% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary);
+	}
+	20% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary);
+	}
+	30% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+			0.9rem 0.9rem var(--color-quaternary);
+	}
+	40% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+			0.9rem 0.9rem var(--color-quaternary), 1.2rem 1.2rem 0 var(--color-quinary);
+	}
+	50% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+			0.9rem 0.9rem var(--color-quaternary), 1.2rem 1.2rem 0 var(--color-quinary);
+	}
+	60% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+			0.9rem 0.9rem var(--color-quaternary), 1.2rem 1.2rem 0 var(--color-quinary);
+	}
+	70% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary),
+			0.9rem 0.9rem var(--color-quaternary);
+	}
+	80% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary), 0.6rem 0.6rem 0 var(--color-tertiary);
+	}
+	90% {
+		text-shadow: 0.3rem 0.3rem 0 var(--color-secondary);
+	}
+	100% {
+		text-shadow: none;
+	}
+}
+
+@keyframes move {
+	0% {
+		transform: translate(0.6rem, 0.6rem);
+	}
+	40% {
+		transform: translate(-0.6rem, -0.6rem);
+	}
+	50% {
+		transform: translate(-0.6rem, -0.6rem);
+	}
+	60% {
+		transform: translate(-0.6rem, -0.6rem);
+	}
+	100% {
+		transform: translate(0.6rem, 0.6rem);
+	}
+}

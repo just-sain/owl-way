@@ -28,8 +28,7 @@ const makeStore = () =>
 			[appSlice.name]: appReducer,
 			[productsSlice.name]: productsReducer,
 			[menuSlice.name]: menuReducer,
-		},
-		devTools: true,
+		}
 	});
 
 export type AppStore = ReturnType<typeof makeStore>;

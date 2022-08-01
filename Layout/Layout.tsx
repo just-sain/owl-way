@@ -1,10 +1,4 @@
-import React, {
-	FunctionComponent,
-	KeyboardEvent,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import React, { FunctionComponent, KeyboardEvent, useEffect, useRef, useState } from 'react';
 // interface
 import { ThemeModeType } from '../store/app/app.interface';
 import { ILayoutProps } from './Layout.props';
@@ -22,10 +16,9 @@ import cn from 'classnames';
 import styles from './Layout.module.scss';
 
 const Layout = ({ children }: ILayoutProps): JSX.Element => {
-	const [isSkipLinkDisplayed, setIsSkipLinkDisplayed] =
-    useState<boolean>(false);
+	const [isSkipLinkDisplayed, setIsSkipLinkDisplayed] = useState<boolean>(false);
 	const main = useRef<HTMLDivElement>(null);
-	const themeMode = useTypedSelector((state) => state.app.themeMode);
+	const themeMode = useTypedSelector(state => state.app.themeMode);
 	const { changeThemeMode } = useActions();
 
 	const setThemeModeLocal = (themeMode: ThemeModeType) => {
@@ -38,9 +31,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
 		if (themeModeFromLocalStorage === null) {
 			setThemeModeLocal('light');
 		} else {
-			setThemeModeLocal(
-				themeModeFromLocalStorage === 'dark' ? 'dark' : 'light'
-			);
+			setThemeModeLocal(themeModeFromLocalStorage === 'dark' ? 'dark' : 'light');
 		}
 	}, []);
 
@@ -55,39 +46,25 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<link
-					rel="stylesheet"
-					href={
-						themeMode === 'dark'
-							? '/style-modes/darkMode.css'
-							: '/style-modes/lightMode.css'
-					}
-				/>
+				<link rel='stylesheet' href={themeMode === 'dark' ? '/style-modes/darkMode.css' : '/style-modes/lightMode.css'} />
 				<title>Owl way | by just.sain</title>
 			</Head>
 			<div
 				className={cn(styles.wrapper, {
 					[styles.dark]: themeMode === 'dark',
-					[styles.light]: themeMode === 'light',
-				})}
-			>
+					[styles.light]: themeMode === 'light'
+				})}>
 				<Header className={styles.header} />
 				<a
 					className={cn(styles.skipLink, {
-						[styles.displayed]: isSkipLinkDisplayed,
+						[styles.displayed]: isSkipLinkDisplayed
 					})}
 					onFocus={() => setIsSkipLinkDisplayed(true)}
 					onKeyDown={skipContentHandler}
-					tabIndex={10}
-				>
-          Сразу к содержанию
+					tabIndex={1}>
+					Сразу к содержанию
 				</a>
-				<ButtonIcon
-					className={styles.up}
-					icon="up"
-					appearance="primary"
-					logic="up"
-				/>
+				<ButtonIcon role={'button'} aria-label='Наверх' className={styles.up} icon='up' appearance='primary' logic='up' />
 				<Sidebar className={styles.sidebar} />
 				<main role={'main'} ref={main} className={styles.main} tabIndex={0}>
 					{children}
@@ -98,9 +75,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
 	);
 };
 
-const withLayout = <T extends Record<string, unknown> & IAppContext>(
-	Component: FunctionComponent<T>
-): ((props: T) => JSX.Element) => {
+const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>): ((props: T) => JSX.Element) => {
 	return (props: T): JSX.Element => (
 		<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
 			<Layout>

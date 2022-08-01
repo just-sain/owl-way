@@ -6,9 +6,11 @@
 		"prepare": "husky install",
 		"dev": "next dev",
 		"build": "next build",
+		"export": "next export",
 		"start": "next start",
 		"lint": "next lint",
-		"eslint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
+		"eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"eslint:fix": "eslint . --ext --fix .js,.jsx,.ts,.tsx"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.3",

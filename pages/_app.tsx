@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Router } from 'next/router';
+import Router from 'next/router';
 import ym, { YMInitializer } from 'react-yandex-metrika';
 import { wrapper } from '../store/store';
 // styles

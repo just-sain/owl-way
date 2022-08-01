@@ -18,40 +18,35 @@ export default withLayout(Type);
 export const getStaticPaths: GetStaticPaths = async () => {
 	let paths: string[] = [];
 	for (const m of firstLevelMenu) {
-		const { data: menu } = await axios.post<IMenuItem[]>(
-			`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`,
-			{
-				firstCategory: m.id,
-			}
-		);
-		paths = paths.concat(menu.flatMap((s) => s.pages.map(() => `/${m.route}`)));
+		const { data: menu } = await axios.post<IMenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+			firstCategory: m.id
+		});
+		paths = paths.concat(menu.flatMap(s => s.pages.map(() => `/${m.route}`)));
 	}
 
 	return {
-		paths: firstLevelMenu.map((m) => `/${m.route}`),
-		fallback: true,
+		paths: firstLevelMenu.map(m => `/${m.route}`),
+		fallback: false
 	};
 };
 // props
-export const getStaticProps: GetStaticProps<ITypeProps> = async ({
-	params,
-}: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<ITypeProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
 	if (!params) return { notFound: true };
-	const firstCategoryItem = firstLevelMenu.find((m) => m.route === params.type);
+	const firstCategoryItem = firstLevelMenu.find(m => m.route === params.type);
 	if (!firstCategoryItem) return { notFound: true };
 
 	const { data: menu } = await axios.post<IMenuItem[]>(API.topPage.find, {
-		firstCategory: firstCategoryItem.id,
+		firstCategory: firstCategoryItem.id
 	});
 	return {
 		props: {
 			menu,
-			firstCategory: firstCategoryItem.id,
-		},
+			firstCategory: firstCategoryItem.id
+		}
 	};
 };
 
 interface ITypeProps extends Record<string, unknown> {
-  menu: IMenuItem[];
-  firstCategory: number;
+	menu: IMenuItem[];
+	firstCategory: number;
 }

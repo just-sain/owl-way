@@ -1,5 +1,4 @@
 import { ForwardedRef, forwardRef, KeyboardEvent, useRef, useState } from 'react';
-import Image from 'next/image';
 import { IProductProps } from './Product.props';
 import { declOfNum, priceRule } from '../../../helpers/helpers';
 // components
@@ -10,6 +9,11 @@ import { ReviewForm } from '../../forms';
 import cn from 'classnames';
 import styles from './Product.module.scss';
 import { motion } from 'framer-motion';
+
+// quality={70}
+// layout='fill'
+// objectFit='contain'
+// objectPosition='center
 
 export const Product = motion(
 	forwardRef(({ className, product }: IProductProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -41,14 +45,7 @@ export const Product = motion(
 			<Card className={cn(className, styles.card)} ref={ref} isRounded color='blue'>
 				<Card className={styles.product} color='white'>
 					<div className={styles.logo}>
-						<Image
-							quality={70}
-							src={!product.image.includes('http') ? process.env.NEXT_PUBLIC_DOMAIN + product.image : product.image}
-							alt={product.title}
-							layout='fill'
-							objectFit='contain'
-							objectPosition='center'
-						/>
+						<img src={!product.image.includes('http') ? process.env.NEXT_PUBLIC_DOMAIN + product.image : product.image} alt={product.title} />
 					</div>
 					<HTag className={styles.title} tag='h3'>
 						{product.title}

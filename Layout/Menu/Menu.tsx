@@ -59,7 +59,7 @@ const Menu = (): JSX.Element => {
 	};
 
 	const firstLevelFrag = (): JSX.Element => (
-		<ul>
+		<ul className={styles.menu}>
 			{firstLevelMenu.map(menuItem => (
 				<li key={menuItem.route} aria-expended={menuItem.id === firstCategory ? false : true}>
 					<Link href={`/${menuItem.route}`}>
@@ -88,7 +88,7 @@ const Menu = (): JSX.Element => {
 							onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
 							className={styles.secondLevel}
 							onClick={() => openSecondLevel(m._id.secondCategory)}
-							aria-expended={m.isOpen}>
+							aria-expended={!m.isOpen ? true : false}>
 							{m._id.secondCategory}
 						</button>
 						<motion.ul
