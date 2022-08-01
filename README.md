@@ -14,7 +14,8 @@ I thought about stylelint and tried to setup here, but failed
 
 ## c\*mshot
 
-It`s not clear yet
+It`s not clear yet.
+But the first feeling of endings came on 08.01.2022
 
 # Bullshit from create-next-app author
 
